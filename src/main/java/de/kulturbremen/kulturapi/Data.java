@@ -1,4 +1,4 @@
-package de.kulturbremen.KulturApi;
+package de.kulturbremen.kulturapi;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
