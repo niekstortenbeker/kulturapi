@@ -16,7 +16,8 @@ public class ShowsController {
      */
     @GetMapping("/shows")
     public Shows show(@RequestParam Map<String,String> allParams){
-        // /shows/?startdate=2020-09-30T12:29:29Z&stopdate=2020-10-02T12:29:29Z
+        // url: /shows/?startdate=2020-09-30T12:29:29Z&stopdate=2020-10-02T12:29:29Z or
+        // /shows
         return Data.getTestShows(allParams.get("startdate"), allParams.get("stopdate"));
     }
 }

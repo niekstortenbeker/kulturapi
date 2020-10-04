@@ -40,6 +40,8 @@ public class Data {
      * @return a ZonedDateTime representation of that string, or now if failes
      */
     private static ZonedDateTime convertUserDate(String userDate, ZonedDateTime alternativeDate){
+        if (userDate == null) {
+            return alternativeDate;}
         try {
             return ZonedDateTime.parse(userDate);
         } catch (DateTimeParseException exception) {

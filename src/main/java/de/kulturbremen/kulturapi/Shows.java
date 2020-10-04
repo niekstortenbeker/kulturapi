@@ -4,17 +4,17 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public class Shows {
-    private final List<Show> showList;
     private final ZonedDateTime updateDate;
     private final ZonedDateTime startDate;
     private final ZonedDateTime stopDate;
+    private final List<Show> showList;
 
     public Shows(List<Show> showList, ZonedDateTime updateDate, ZonedDateTime startDate,
                  ZonedDateTime stopDate) {
-        this.showList = showList;
         this.updateDate = updateDate;
         this.startDate = startDate;
         this.stopDate = stopDate;
+        this.showList = showList;
     }
 
     public List<Show> getShowList() {
