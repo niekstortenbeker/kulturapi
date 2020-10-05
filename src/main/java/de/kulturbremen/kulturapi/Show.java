@@ -1,10 +1,10 @@
 package de.kulturbremen.kulturapi;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 
 public class Show {
     private final String title;
-    private final ZonedDateTime dateTime;
+    private final Instant dateTime;
     private final String description;
     private final String url;
     private final String location;
@@ -12,7 +12,7 @@ public class Show {
     private final Boolean isDubbed;
 
 
-    public Show(String title, ZonedDateTime dateTime, String description, String url,
+    public Show(String title, Instant dateTime, String description, String url,
                 String location, String category, Boolean isDubbed) {
         this.title = title;
         this.dateTime = dateTime;
@@ -27,7 +27,7 @@ public class Show {
         return title;
     }
 
-    public ZonedDateTime getDateTime() {
+    public Instant getDateTime() {
         return dateTime;
     }
 

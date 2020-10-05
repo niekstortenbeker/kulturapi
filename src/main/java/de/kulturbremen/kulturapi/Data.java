@@ -1,7 +1,8 @@
 package de.kulturbremen.kulturapi;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class Data {
         List<Show> shows = new ArrayList<>();
         shows.add(new Show(
                 "A Dark Past",
-                ZonedDateTime.now(),
+                Instant.now(),
                 "90 min. A very dark movie",
                 "www.city46.de",
                 "City 46",
@@ -21,29 +22,29 @@ public class Data {
                 false));
         shows.add(new Show(
                 "Der grüne Baum",
-                ZonedDateTime.now(),
+                Instant.now(),
                 "A theater play",
                 "www.theaterbremen.de",
                 "Theater Bremen",
                 "stage",
                 false)) ;
 
-        ZonedDateTime start = convertUserDate(startDate, ZonedDateTime.now());
-        ZonedDateTime stop = convertUserDate(stopDate, ZonedDateTime.now().plusDays(7));
-        return new Shows(shows, ZonedDateTime.now(), start, stop);
+        Instant start = convertUserDate(startDate, Instant.now());
+        Instant stop = convertUserDate(stopDate, Instant.now().plus(7, ChronoUnit.DAYS));
+        return new Shows(shows, Instant.now(), start, stop);
     }
 
     /**
      * convert an ISO8601 UTC date string to a ZonedDateTime
      * @param userDate a ISO8601 UTC date (e.g. 2020-09-30T12:29:29Z)
      * @param alternativeDate date to use in case userDate is null or parseException is raised
-     * @return a ZonedDateTime representation of that string, or now if failes
+     * @return a ZonedDateTime representation of that string, or now if fails
      */
-    private static ZonedDateTime convertUserDate(String userDate, ZonedDateTime alternativeDate){
+    private static Instant convertUserDate(String userDate, Instant alternativeDate){
         if (userDate == null) {
             return alternativeDate;}
         try {
-            return ZonedDateTime.parse(userDate);
+            return Instant.parse(userDate);
         } catch (DateTimeParseException exception) {
             return alternativeDate;
         }

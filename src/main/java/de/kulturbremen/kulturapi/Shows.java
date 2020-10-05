@@ -1,16 +1,16 @@
 package de.kulturbremen.kulturapi;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.List;
 
 public class Shows {
-    private final ZonedDateTime updateDate;
-    private final ZonedDateTime startDate;
-    private final ZonedDateTime stopDate;
+    private final Instant updateDate;
+    private final Instant startDate;
+    private final Instant stopDate;
     private final List<Show> showList;
 
-    public Shows(List<Show> showList, ZonedDateTime updateDate, ZonedDateTime startDate,
-                 ZonedDateTime stopDate) {
+    public Shows(List<Show> showList, Instant updateDate, Instant startDate,
+                 Instant stopDate) {
         this.updateDate = updateDate;
         this.startDate = startDate;
         this.stopDate = stopDate;
@@ -21,15 +21,15 @@ public class Shows {
         return showList;
     }
 
-    public ZonedDateTime getUpdateDate() {
+    public Instant getUpdateDate() {
         return updateDate;
     }
 
-    public ZonedDateTime getStopDate() {
+    public Instant getStopDate() {
         return stopDate;
     }
 
-    public ZonedDateTime getStartDate() {
+    public Instant getStartDate() {
         return startDate;
     }
 }
