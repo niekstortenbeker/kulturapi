@@ -3,6 +3,7 @@ package de.kulturbremen.kulturapi;
 import java.time.Instant;
 
 public class Show {
+
     private final String title;
     private final Instant dateTime;
     private final String description;
@@ -21,6 +22,13 @@ public class Show {
         this.location = location;
         this.category = category;
         this.isDubbed = isDubbed;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Show[title='%s', date='%s', description='%s', url='%s', location='%s', category='%s', isDubbed='%s']",
+                title, dateTime, description, url, location, category, isDubbed);
     }
 
     public String getTitle() {
