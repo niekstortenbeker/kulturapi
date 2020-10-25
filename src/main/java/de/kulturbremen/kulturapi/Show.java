@@ -1,7 +1,10 @@
 package de.kulturbremen.kulturapi;
 
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.time.Instant;
 
+@Table(value = "SHOW")
 public class Show {
 
     private final String title;
@@ -58,4 +61,5 @@ public class Show {
     public Boolean getIsDubbed() {
         return isDubbed;
     }
+
 }

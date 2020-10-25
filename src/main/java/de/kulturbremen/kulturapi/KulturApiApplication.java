@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 @SpringBootApplication
 public class KulturApiApplication implements CommandLineRunner {
 
@@ -23,8 +25,8 @@ public class KulturApiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("well we got here");
-		Database db = new Database(jdbcTemplate);
-		int result = db.simpleQuery();
-		log.info("well we got a test result: " + result);
+		DataService dataService = new DataService(jdbcTemplate);
+		List<Show> shows = dataService.queryShows();
+		shows.forEach(show -> log.info(show.toString()));
 	}
 }
